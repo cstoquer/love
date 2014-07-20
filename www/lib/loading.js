@@ -172,6 +172,7 @@ function preloadAssets(cb) {
 		}
 		// loading assets in parallel, with a limit of 5 parallel downloads.
 		var parallel = Math.min(5, count - 1);
+		if (parallel < 1) return cb(null, data);
 		for (var j = 0; j <= parallel; j++) loadAssets();
 	});
 }
